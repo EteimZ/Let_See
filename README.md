@@ -4,7 +4,7 @@ Over the course of January - June I will dedicate this period to be learning the
 
 ## Motivations
 
-Why learn C? is a very popular question and i seriously don't have the answer(yet!) but here are my motivations for learning the C language.
+Why learn C? is a very popular question and I seriously don't have the answer(yet!) but here are my motivations for learning the C language.
 
 * Build core foundation: By learning the C language, I will be building core foundations in both Computer Science & Programming since C is basis of most modern day programming language.
 * Respect for modern day programming language: A lot of high level programming language do a lot for us but we take it for granted, C being a minimal language will teach you(me) respect.
@@ -25,8 +25,3 @@ These are the final projects:
 
 * Make pong game with allegro Library.
 * Make a text editor with C.
-=======
-# Creative_Programs
-
-This repo contains artistic programms from various programming language especially JavaScript.
->>>>>>> 48342c256d1dadaa7a117b6187e269fb4afc852e
