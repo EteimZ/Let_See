@@ -6,11 +6,11 @@ Over the course of January - June I will dedicate this period to be learning the
 
 Why learn C? is a very popular question and I seriously don't have the answer(yet!) but here are my motivations for learning the C language.
 
-* Build core foundation: By learning the C language, I will be building core foundations in both Computer Science & Programming since C is basis of most modern day programming language.
-* Respect for modern day programming language: A lot of high level programming language do a lot for us but we take it for granted, C being a minimal language will teach you(me) respect.
-* Fun: So far it's been fun.
-* Data Structures/Algorithm: Knowledge of C will help in understanding of the fundamental data structures and how common algorithm works.
-* C++: C will help me with learning C++ in the future.
+* **Build core foundation:** By learning the C language, I will be building core foundations in both Computer Science & Programming since C is basis of most modern day programming language.
+* **Respect for modern day programming language:** A lot of high level programming language do a lot for us but we take it for granted, C being a minimal language will teach you(me) respect.
+* **Fun:** So far it's been fun.
+* **Data Structures/Algorithm:** Knowledge of C will help in understanding of the fundamental data structures and how common algorithm works.
+* **C++:** C will help me with learning C++ in the future.
 
 ## Resorces
 
