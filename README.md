@@ -1,6 +1,6 @@
 # Let See
 
-Over the course of January - June I will dedicate this period to be learning the C programming language. This repo will examples and exercises from various resources.
+Over the course of January - June I will dedicate this period to be learning the C programming language. This repo will contain examples and exercises from various resources.
 
 ## Motivations
 
