@@ -10,7 +10,7 @@ Why learn C? is a very popular question and I seriously don't have the answer(ye
 * Respect for modern day programming language: A lot of high level programming language do a lot for us but we take it for granted, C being a minimal language will teach you(me) respect.
 * Fun: So far it's been fun.
 * Data Structures/Algorithm: Knowledge of C will help in understanding of the fundamental data structures and how common algorithm works.
-* C++: C will help me with l
+* C++: C will help me with learning C++ in the future.
 
 ## Resorces
 
