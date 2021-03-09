@@ -11,6 +11,7 @@ Why learn C? is a very popular question and I seriously don't have the answer(ye
 * **Fun:** So far it's been fun.
 * **Data Structures/Algorithm:** Knowledge of C will help in understanding of the fundamental data structures and how common algorithm works.
 * **C++:** C will help me with learning C++ in the future.
+* **Graphics:** C will help me in learn OpenGL and build my undersranding of Computer Graphics.
 
 ## Resorces
 
@@ -25,3 +26,4 @@ These are the final projects:
 
 * Make pong game with allegro Library.
 * Make a text editor with C.
+* Tic-Tac-Toe
