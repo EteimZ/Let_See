@@ -1,28 +1,43 @@
+/* This is an implementation of the minimax algorithm to player tic-tac-toe.
+   
+   The code for minimax Algorithm was gotten from https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
+   TODO: Make the board prettier.
+*/  
+
+
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
+//Function to check if board is empty
 bool isMovesLeft(char board[3][3]);
 
+//Function to check winner
 int evaluate(char b[3][3]);
 
+//minimax algorithm
 int minimax(char board[3][3], int depth, bool isMax);
 
+//User defined types for best move
 struct Move
 {
 	int row, col;
 };
 
-char player , opponent ;
+char player, opponent ;
 
+//Function for best move
 struct Move findBestMove(char board[3][3]);
 
+//Function to draw board on the screen
 void Draw( char board[3][3] );
 
+//Function for User Input
 void input(char board[3][3]);
 
-char Win( char matrix[3][3] );
+//Function to choose player
+void Choose();
 
 int main( void )
 {
@@ -33,86 +48,62 @@ int main( void )
                 { '_', '_', '_' }
         };
 	
-	int n = 0;    
 
-    printf("Choose for the AI, X or O: ");
-    scanf("%c", &player);
-
-    if ( player == 'X')
-        opponent = 'O';
-    else if ( player == 'O')
-        opponent = 'X';
-    
-    
-	while(1)
+        Choose();
+        
+        while(1)
 	{	
-
-		n++;
-        if (player == 'X')
-        {
-            struct Move bestMove = findBestMove(board);
-		    board[bestMove.row][bestMove.col] = player;
-		    Draw(board);
-		    if (Win(board) == 'X')
-            {
-                printf("X wins!\n");
-                break;
-            }else if (Win(board) == 'O')
-            {
-                printf("O wins!\n");
-                break;
-            }else if (Win(board) == '/' && n == 5)
-            {
-                printf("It's a draw!\n");
-                break;
-            }
+                if (player == 'X')
+                {
+                        struct Move bestMove = findBestMove(board);
+		        board[bestMove.row][bestMove.col] = player;
+		        Draw(board);
+		        if (evaluate(board) == 10)
+                        {
+                        printf("%c wins!\n", player);
+                        break;
+                        }else if (evaluate(board) == -10)
+                        {
+                        printf("%c wins!\n", opponent);
+                        break;
+                        }else if ( evaluate(board) == 0 && isMovesLeft(board) == 0 )
+                        {
+                        printf("It's a draw!\n");
+                        break;
+                        }
 		
-            input(board);
-        } else
-        {   
-            Draw(board);
-            input(board);
-            struct Move bestMove = findBestMove(board);
-		    board[bestMove.row][bestMove.col] = player;
-		    Draw(board);
-		    if (Win(board) == 'X')
-            {
-                printf("X wins!\n");
-                break;
-            }else if (Win(board) == 'O')
-            {
-                printf("O wins!\n");
-                break;
-            }else if (Win(board) == '/' && n == 5)
-            {
-                printf("It's a draw!\n");
-                break;
-            }
+                        input(board);
+                } else
+                {   
+                        Draw(board);
+                        input(board);
+                        struct Move bestMove = findBestMove(board);
+		        board[bestMove.row][bestMove.col] = player;
+		        Draw(board);
+		        if (evaluate(board) == 10)
+                        {
+                        printf("%c wins!\n", player);
+                        break;
+                        }else if (evaluate(board) == -10)
+                        {
+                        printf("%c wins!\n", opponent);
+                        break;
+                        }else if ( evaluate(board) == 0 && isMovesLeft(board) == 0 )
+                        {
+                        printf("It's a draw!\n");
+                        break;
+                        }
 		
+                }
+        
         }
-        
-	}
 
 	
 	
-    return 0;
+        return 0;
 
 }
 
-void Moves(char player, char board[3][3])
-{   
-    if (player == 'X')
-    {
-        struct Move bestMove = findBestMove(board);
-	    board[bestMove.row][bestMove.col] = player;
-        Draw(board);
-        
-    }else if ( player == 'O')
-    {
-        /* code */
-    }
-    
-}
 
 void Draw(char board[3][3])
 {
@@ -126,6 +117,22 @@ void Draw(char board[3][3])
         }
 }
 
+void Choose()
+{
+        printf("Choose between X or O: ");
+        scanf("%c", &opponent);
+
+        if ( opponent == 'X')
+                player = 'O';
+        else if ( opponent == 'O')
+                player = 'X';
+        else
+        {
+                printf("Wrong input try again\n");
+                Choose();
+        }
+
+}
 
 void input(char board[3][3])
 {
@@ -234,57 +241,6 @@ void input(char board[3][3])
         
 }
 
-/*
-void TogglePlayer()
-{
-	if (player == 'X')
-		player = 'O';
-	else
-		player = 'X';
-}
-
-*/
-char Win( char matrix[3][3] )
-{
-
-	//first player
-	if (matrix[0][0] == 'X' && matrix[0][1] == 'X' && matrix[0][2] == 'X')
-		return 'X';
-        if (matrix[1][0] == 'X' && matrix[1][1] == 'X' && matrix[1][2] == 'X')
-                return 'X';
-        if (matrix[2][0] == 'X' && matrix[2][1] == 'X' && matrix[2][2] == 'X')
-                return 'X';
-        if (matrix[0][0] == 'X' && matrix[1][0] == 'X' && matrix[2][0] == 'X')
-                return 'X';
-        if (matrix[0][1] == 'X' && matrix[1][1] == 'X' && matrix[2][1] == 'X')
-                return 'X';
-        if (matrix[0][2] == 'X' && matrix[1][2] == 'X' && matrix[2][2] == 'X')
-                return 'X';
-        if (matrix[0][0] == 'X' && matrix[1][1] == 'X' && matrix[2][2] == 'X')
-                return 'X';
-        if (matrix[2][0] == 'X' && matrix[1][1] == 'X' && matrix[0][2] == 'X')
-                return 'X';
-	
-	//second player
-        if (matrix[0][0] == 'O' && matrix[0][1] == 'O' && matrix[0][2] == 'O')
-                return 'O';
-        if (matrix[1][0] == 'O' && matrix[1][1] == 'O' && matrix[1][2] == 'O')
-                return 'O';
-        if (matrix[2][0] == 'O' && matrix[2][1] == 'O' && matrix[2][2] == 'O')
-                return 'O';
-        if (matrix[0][0] == 'O' && matrix[1][0] == 'O' && matrix[2][0] == 'O')
-                return 'O';
-        if (matrix[0][1] == 'O' && matrix[1][1] == 'O' && matrix[2][1] == 'O')
-                return 'O';
-        if (matrix[0][2] == 'O' && matrix[1][2] == 'O' && matrix[2][2] == 'O')
-                return 'O';
-        if (matrix[0][0] == 'O' && matrix[1][1] == 'O' && matrix[2][2] == 'O')
-                return 'O';
-        if (matrix[2][0] == 'O' && matrix[1][1] == 'O' && matrix[0][2] == 'O')
-                return 'O';
-
-	return '/';
-}
 
 bool isMovesLeft(char board[3][3])
 {
@@ -462,10 +418,7 @@ struct Move findBestMove(char board[3][3])
                         }
                 }
         }
-        printf("The value of the best Move is : %d\n\n",
-                        bestVal);
+
 
         return bestMove;
 }
-
-
